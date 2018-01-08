@@ -1,12 +1,24 @@
 from Model import Base
-from sqlalchemy import Column, ForeignKey, Integer, String, Text
+from sqlalchemy import Column, ForeignKey
+from sqlalchemy.orm import relationship
+from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, LONGTEXT
 
 
 class AnalysisOutput(Base):
-    # Table for holding output files associated with an analysis
-    __tablename__       = 'Analysis_Output'
-    analysis_output_id  = Column(Integer, primary_key=True, unique=True)
-    node_id             = Column(String(45), nullable=False)
-    output_key          = Column(String(45), nullable=False)
-    path                = Column(Text)
-    analysis_id         = Column(ForeignKey(u'Analysis.analysis_id'), nullable=False, index=True)
+
+    __tablename__       = 'analysis_output'
+
+    analysis_output_id  = Column(INTEGER,       autoincrement=True, primary_key=True, nullable=False)
+    node_id             = Column(VARCHAR(128),  nullable=False)
+    output_key          = Column(VARCHAR(128),  nullable=False)
+    path                = Column(LONGTEXT,      nullable=False)
+
+    analysis_id         = Column(INTEGER, ForeignKey("analysis.analysis_id"), nullable=False, index=True)
+
+    analysis            = relationship("Analysis", backref="output")
+
+    def __repr__(self):
+        return self.__str__()
+
+    def __str__(self):
+        return "<AnalysisOutput(%(id)s)>" % self.__dict__

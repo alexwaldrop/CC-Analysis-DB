@@ -6,18 +6,17 @@ from sqlalchemy.dialects.mysql import INTEGER
 
 class AnalysisInput(Base):
 
-    __tablename__ = 'Analysis_Input'
+    __tablename__       = 'analysis_input'
 
-    input_id        = Column(INTEGER, primary_key=True, autoincrement=True)
-    analysis_id     = Column(INTEGER, ForeignKey("Analysis.analysis_id"), nullable=False, index=True)
-    fastq_file_id   = Column(INTEGER, ForeignKey("dry_fastqfile.id"), nullable=True,
-                             unique=False, index=True, default=None)
-    analysis_output_id = Column(INTEGER, ForeignKey("Analysis_Output.analysis_output_id"),
-                                unique=False, nullable=True, index=True, default=None)
+    input_id            = Column(INTEGER,   autoincrement=True, primary_key=True, nullable=False)
 
-    analysis        = relationship("Analysis", backref="input")
-    fastq_file      = relationship("DryFastqfile", backref="analyses")
-    output_file     = relationship("AnalysisOutput", backref="analyses")
+    analysis_id         = Column(INTEGER, ForeignKey("analysis.analysis_id"), nullable=False, index=True)
+    fastq_file_id       = Column(INTEGER, ForeignKey("dry_fastqfile.id"), default=None, index=True)
+    analysis_output_id  = Column(INTEGER, ForeignKey("analysis_output.analysis_output_id"), default=None, index=True)
+
+    analysis            = relationship("Analysis",          backref="input")
+    fastq_file          = relationship("DryFastqfile",      backref="analyses")
+    output_file         = relationship("AnalysisOutput",    backref="analyses")
 
     def __repr__(self):
         return self.__str__()

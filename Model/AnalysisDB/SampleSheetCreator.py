@@ -3,9 +3,9 @@ from sqlalchemy import Column
 from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, TEXT, TINYINT
 
 
-class SampleSheetCreators(Base):
+class SampleSheetCreator(Base):
 
-    __tablename__ = 'Sample_Sheet_Creators'
+    __tablename__           = 'sample_sheet_creator'
 
     sample_sheet_creator_id = Column(INTEGER,       primary_key=True, unique=True)
     name                    = Column(VARCHAR(45),   nullable=False)
@@ -19,4 +19,4 @@ class SampleSheetCreators(Base):
         return self.__str__()
 
     def __str__(self):
-        return "<SampleSheetCreators(%(id)s)>" % self.__dict__
+        return "<SampleSheetCreators(%(sample_sheet_creator_id)s)>" % self.__dict__

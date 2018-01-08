@@ -1,44 +1,35 @@
 from Model import Base
-from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, Text, text, Float, Table
+from sqlalchemy import Column, ForeignKey, func
 from sqlalchemy.orm import relationship
+from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, LONGTEXT, DOUBLE, TIMESTAMP
 
 
 class Analysis(Base):
-    __tablename__       = 'Analysis'
 
-    # Analysis Columns
-    analysis_id         = Column(Integer, primary_key=True, unique=True)
-    name                = Column(String(45))
-    description         = Column(Text)
-    creation_timestamp  = Column(DateTime, nullable=False, server_default=text("CURRENT_TIMESTAMP"))
-    creator_id          = Column(ForeignKey(u'auth_user.id'), nullable=False, index=True)
-    analysis_type_id    = Column(ForeignKey(u'Analysis_Type.analysis_type_id'), nullable=False, index=True)
-    status_id           = Column(ForeignKey(u'Analysis_Status.status_id'), nullable=False, index=True)
-    error_msg           = Column(Text)
-    run_time            = Column(Float)
-    final_output_dir    = Column(String(150), nullable=False)
-    sample_sheet        = Column(Text, nullable=False)
-    run_start           = Column(DateTime)
-    error_id            = Column(ForeignKey(u'Analysis_Error.error_id'), nullable=False, index=True)
+    __tablename__       = 'analysis'
 
-    # Foreign-key relationships
-    output              = relationship(u'AnalysisOutput')
-    analysis_type       = relationship(u'AnalysisType')
-    creator             = relationship(u'AuthUser')
-    status              = relationship(u'AnalysisStatus')
-    error               = relationship(u'AnalysisError')
+    analysis_id         = Column(INTEGER,       autoincrement=True, primary_key=True, nullable=False)
+    name                = Column(VARCHAR(128),  default=None)
+    description         = Column(LONGTEXT,      nullable=False)
+    creation_timestamp  = Column(TIMESTAMP,     nullable=False, server_default=func.current_timestamp())
+    error_msg           = Column(LONGTEXT,      default=None)
+    run_time            = Column(DOUBLE,        default=None)
+    final_output_dir    = Column(LONGTEXT,      nullable=False)
+    sample_sheet        = Column(LONGTEXT,      nullable=False)
+    run_start           = Column(TIMESTAMP,     default=None)
 
-    # Many-to-Many relationships
-    reruns = relationship(
-        u'Analysis',
-        secondary='Analysis_Rerun',
-        primaryjoin=u'Analysis.analysis_id == Analysis_Rerun.c.old_analysis_id',
-        secondaryjoin=u'Analysis.analysis_id == Analysis_Rerun.c.new_analysis_id'
-    )
+    creator_id          = Column(INTEGER, ForeignKey("auth_user.id"), nullable=False, index=True)
+    analysis_type_id    = Column(INTEGER, ForeignKey("analysis_type.analysis_type_id"), nullable=False, index=True)
+    status_id           = Column(INTEGER, ForeignKey("analysis_status.status_id"), nullable=False, index=True)
+    error_id            = Column(INTEGER, ForeignKey("analysis_error.error_id"), nullable=False, index=True)
 
-# Join table for analysis reruns
-analysis_rerun_table = Table(
-    'Analysis_Rerun', Base.metadata,
-    Column('old_analysis_id', ForeignKey(u'Analysis.analysis_id'), primary_key=True, nullable=False),
-    Column('new_analysis_id', ForeignKey(u'Analysis.analysis_id'), primary_key=True, nullable=False, index=True)
-)
+    creator             = relationship("AuthUser",          backref="analysis")
+    analysis_type       = relationship("AnalysisType",      backref="analysis")
+    status              = relationship("AnalysisStatus",    backref="analysis")
+    error               = relationship("AnalysisError",     backref="analysis")
+
+    def __repr__(self):
+        return self.__str__()
+
+    def __str__(self):
+        return "<Analysis(%(analysis_id)s)>" % self.__dict__
