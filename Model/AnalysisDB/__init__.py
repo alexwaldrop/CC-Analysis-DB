@@ -3,6 +3,7 @@ from Analysis import Analysis
 from AnalysisInput import AnalysisInput
 from AnalysisOutput import AnalysisOutput
 from AnalysisSamples import AnalysisSamples
+from AnalysisRerun import AnalysisRerun
 
 from AnalysisStatus import AnalysisStatus
 from AnalysisError import AnalysisError
@@ -16,6 +17,6 @@ from SampleSheetCreator import SampleSheetCreator
 
 __all__ = [
     "Analysis",
-    "AnalysisInput", "AnalysisOutput", "AnalysisSamples",
+    "AnalysisInput", "AnalysisOutput", "AnalysisSamples", "AnalysisRerun",
     "AnalysisStatus", "AnalysisError", "AnalysisType",
     "GraphConfig", "PlatformConfig", "ResourceKit", "StartupScript", "SampleSheetCreator"]
