@@ -1,4 +1,4 @@
-from Model import Base
+from .. import Base
 from sqlalchemy import Column, ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.mysql import INTEGER
