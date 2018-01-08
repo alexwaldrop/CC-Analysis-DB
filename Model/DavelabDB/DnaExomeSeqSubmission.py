@@ -15,9 +15,9 @@ class DnaExomeSeqSubmission(Base):
     order_id            = Column(VARCHAR(128),  default=None)
     lane_id             = Column(VARCHAR(128),  default=None)
     barcode_id          = Column(VARCHAR(128),  default=None)
-    exome_sequencing_id = Column(VARCHAR(128),  default=None)
+    sequencing_id       = Column(VARCHAR(128),  default=None)
     sequencer           = Column(VARCHAR(128),  default=None)
-    exome_run_number    = Column(VARCHAR(128),  default=None)
+    iteration           = Column(VARCHAR(128),  default=None)
     pipeline            = Column(VARCHAR(128),  default=None)
     genome              = Column(VARCHAR(128),  default=None)
     notes               = Column(LONGTEXT,      default=None)
@@ -27,8 +27,6 @@ class DnaExomeSeqSubmission(Base):
 
     sharedsubmission    = relationship("SharedSubmission", backref="wes_submission")
     sharedsample        = relationship("SharedSample", backref="wes_submission")
-
-    library_name        = synonym("exome_sequencing_id")
 
     def __repr__(self):
         return self.__str__()

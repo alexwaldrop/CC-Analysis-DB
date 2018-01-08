@@ -11,7 +11,6 @@ class RnaCapturedLibrary(Base):
     id              = Column(INTEGER,       autoincrement=True, primary_key=True, nullable=False)
     iteration       = Column(INTEGER,       default=None)
     date            = Column(DATE,          default=None)
-    percent_ribo    = Column(DOUBLE,        default=None)
     input_volume    = Column(DOUBLE,        default=None)
     input_amount    = Column(DOUBLE,        default=None)
     method          = Column(VARCHAR(128),  default=None)

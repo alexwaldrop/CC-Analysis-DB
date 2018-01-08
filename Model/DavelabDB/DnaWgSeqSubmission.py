@@ -15,7 +15,7 @@ class DnaWgSeqSubmission(Base):
     order_id         = Column(VARCHAR(128), default=None)
     lane_id          = Column(VARCHAR(128), default=None)
     barcode_id       = Column(VARCHAR(128), default=None)
-    wg_sequencing_id = Column(VARCHAR(128), default=None)
+    sequencing_id    = Column(VARCHAR(128), default=None)
     sequencer        = Column(VARCHAR(128), default=None)
     iteration        = Column(VARCHAR(128), default=None)
     pipeline         = Column(VARCHAR(128), default=None)
@@ -28,8 +28,6 @@ class DnaWgSeqSubmission(Base):
 
     sharedsubmission = relationship("SharedSubmission", backref="wgs_submission")
     sharedsample     = relationship("SharedSample", backref="wgs_submission")
-
-    library_name     = synonym("wg_sequencing_id")
 
     def __repr__(self):
         return self.__str__()

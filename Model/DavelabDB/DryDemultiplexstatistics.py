@@ -1,7 +1,7 @@
 from Model import Base
 from sqlalchemy import Column, ForeignKey
 from sqlalchemy.orm import relationship
-from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, DOUBLE, BIGINT
+from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, DOUBLE, BIGINT, TINYINT
 
 
 class DryDemultiplexstatistic(Base):
@@ -28,6 +28,7 @@ class DryDemultiplexstatistic(Base):
     percent_q30_pf      = Column(DOUBLE,        default=None)
     mean_quality_score_pf = Column(DOUBLE,      default=None)
     flowcell_id         = Column(VARCHAR(32),   default=None)
+    expected            = Column(TINYINT,       nullable=False)
 
     sample_id           = Column(VARCHAR(32), ForeignKey("shared_sample.dave_lab_id"), default=None, index=True)
     submission_id       = Column(INTEGER, ForeignKey("shared_submission.id"), default=None, index=True)

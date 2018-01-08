@@ -23,11 +23,6 @@ class RnaLibraryPreparation(Base):
     size                    = Column(INTEGER,       default=None)
     molarity                = Column(DOUBLE,        default=None)
     qpcr_molarity_nm        = Column(DOUBLE,        default=None)
-    miseq_run_name          = Column(VARCHAR(128),  default=None)
-    miseq_flowcell_id       = Column(VARCHAR(128),  default=None)
-    percent_barcode         = Column(INTEGER,       default=None)
-    percent_barcode_normalized = Column(DOUBLE,     default=None)
-    cluster_density         = Column(VARCHAR(128),  default=None)
     notes                   = Column(LONGTEXT,      default=None)
     location                = Column(VARCHAR(128),  default=None)
 
