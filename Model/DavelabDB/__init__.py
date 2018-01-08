@@ -28,7 +28,7 @@ from SharedSubmission import SharedSubmission
 from SharedUsergroup import SharedUsergroup
 from SharedUserprofile import SharedUserprofile
 
-from Assays import Assays
+from SequencingSubmission import SequencingSubmission
 
 __all__ = [
     "AuthUser",
@@ -39,4 +39,4 @@ __all__ = [
     "DryDemultiplexstatistic", "DryFastqfile",
     "SharedDiagnosis", "SharedInstitution", "SharedOrganism", "SharedPatient", "SharedSample",
     "SharedSampletype", "SharedSubmission", "SharedUsergroup", "SharedUserprofile",
-    "Assays"]
+    "SequencingSubmission"]
