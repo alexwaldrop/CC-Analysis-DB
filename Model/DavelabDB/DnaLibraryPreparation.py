@@ -20,14 +20,10 @@ class DnaLibraryPreparation(Base):
     tube                = Column(VARCHAR(128),  default=None)
     barcode             = Column(VARCHAR(128),  default=None)
     pcr_cycles          = Column(INTEGER,       default=None)
-    miseq_run_name      = Column(VARCHAR(128),  default=None)
-    miseq_flowcell_id   = Column(VARCHAR(128),  default=None)
-    percent_barcode     = Column(DOUBLE,        default=None)
-    cluster_density     = Column(VARCHAR(128),  default=None)
     notes               = Column(LONGTEXT,      default=None)
     location            = Column(VARCHAR(128),  default=None)
 
-    sample_id           = Column(VARCHAR(32), ForeignKey("shared_sample.dave_lab_id"), index=True, nullable=False)
+    sample_id           = Column(VARCHAR(32), ForeignKey("shared_sample.dave_lab_id"), index=True, default=None)
 
     sharedsample        = relationship("SharedSample", backref="dnaLibraryPreparation")
 
