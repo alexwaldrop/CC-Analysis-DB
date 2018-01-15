@@ -27,8 +27,8 @@ class DryFastqfile(Base):
     demultiplex_id      = Column(INTEGER, ForeignKey("dry_demultiplexstatistics.id"), default=None, index=True)
     sample_id           = Column(VARCHAR(32), ForeignKey("shared_sample.dave_lab_id"), default=None, index=True)
 
-    sharedsample        = relationship("SharedSample", backref="fastq_files")
-    drydemultiplexstatistics = relationship("DryDemultiplexstatistics", backref="fastq_files")
+    sharedsample        = relationship("SharedSample")
+    drydemultiplexstatistics = relationship("DryDemultiplexstatistics")
 
     def __repr__(self):
         return self.__str__()
