@@ -30,7 +30,7 @@ class SequencingSubmission(Base):
 
     sharedsample        = relationship("SharedSample", backref="seq_submission")
     sharedsubmission    = relationship("SharedSubmission", backref="seq_submission")
-    demultiplex_report  = relationship("DryDemultiplexstatistic", backref="seq_submission")
+    demultiplex_report  = relationship("DryDemultiplexstatistics", backref="seq_submission")
 
     library_name        = synonym("sequencing_id")
 

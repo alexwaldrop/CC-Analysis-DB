@@ -14,7 +14,7 @@ from RnaLibraryPreparation import RnaLibraryPreparation
 
 from RnaSeqSubmission import RnaSeqSubmission
 
-from DryDemultiplexstatistics import DryDemultiplexstatistic
+from DryDemultiplexstatistics import DryDemultiplexstatistics
 from DryFastqfile import DryFastqfile
 
 from SharedDiagnosis import SharedDiagnosis
@@ -36,7 +36,7 @@ __all__ = [
     "DnaExomeSeqSubmission", "DnaWgSeqSubmission",
     "RnaExtraction", "RnaCapturedLibrary", "RnaLibraryPreparation",
     "RnaSeqSubmission",
-    "DryDemultiplexstatistic", "DryFastqfile",
+    "DryDemultiplexstatistics", "DryFastqfile",
     "SharedDiagnosis", "SharedInstitution", "SharedOrganism", "SharedPatient", "SharedSample",
     "SharedSampletype", "SharedSubmission", "SharedUsergroup", "SharedUserprofile",
     "SequencingSubmission"]

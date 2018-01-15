@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, DOUBLE, BIGINT, TINYINT
 
 
-class DryDemultiplexstatistic(Base):
+class DryDemultiplexstatistics(Base):
 
     __tablename__ = 'dry_demultiplexstatistics'
 
@@ -40,4 +40,4 @@ class DryDemultiplexstatistic(Base):
         return self.__str__()
 
     def __str__(self):
-        return "<DryDemultiplexstatistic(%(id)s)>" % self.__dict__
+        return "<DryDemultiplexstatistics(%(id)s)>" % self.__dict__
