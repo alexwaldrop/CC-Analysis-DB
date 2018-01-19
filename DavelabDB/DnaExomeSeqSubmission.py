@@ -1,6 +1,6 @@
 from .. import Base
 from sqlalchemy import Column, ForeignKey
-from sqlalchemy.orm import relationship, synonym
+from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, DATE, LONGTEXT
 
 

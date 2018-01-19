@@ -1,7 +1,7 @@
 from .. import Base
 from sqlalchemy import Column, ForeignKey
-from sqlalchemy.orm import relationship, synonym
-from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, DATE, LONGTEXT, DOUBLE
+from sqlalchemy.orm import relationship
+from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, DATE, LONGTEXT
 
 
 class RnaSeqSubmission(Base):
