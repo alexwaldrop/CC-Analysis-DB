@@ -23,7 +23,7 @@ class AnalysisType(Base):
     graph_config_id         = Column(INTEGER, ForeignKey("graph_config.graph_config_id"), nullable=False, index=True)
     resource_kit_id         = Column(INTEGER, ForeignKey("resource_kit.resource_kit_id"), nullable=False, index=True)
     platform_config_id      = Column(INTEGER, ForeignKey("platform_config.platform_config_id"), nullable=False, index=True)
-    startup_script_id       = Column(INTEGER, ForeignKey("startup_script.startup_script_id"), nullable=False, index=True)
+    startup_script_id       = Column(INTEGER, ForeignKey("startup_script.startup_script_id"), index=True)
     sample_sheet_creator_id = Column(INTEGER, ForeignKey("sample_sheet_creator.sample_sheet_creator_id"), nullable=False, index=True)
 
     creator                 = relationship("AuthUser",              backref="analysis_types")
