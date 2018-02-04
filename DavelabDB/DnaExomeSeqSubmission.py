@@ -21,6 +21,7 @@ class DnaExomeSeqSubmission(Base):
     pipeline            = Column(VARCHAR(128),  default=None)
     genome              = Column(VARCHAR(128),  default=None)
     notes               = Column(LONGTEXT,      default=None)
+    record_id           = Column(INTEGER,       default=None, unique=True)
 
     sample_id           = Column(VARCHAR(32),   ForeignKey("shared_sample.dave_lab_id"), index=True, nullable=False)
     submission_id       = Column(INTEGER,       ForeignKey("shared_submission.id"), default=None, index=True)
