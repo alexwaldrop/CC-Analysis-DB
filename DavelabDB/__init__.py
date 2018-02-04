@@ -31,6 +31,8 @@ from SharedUserprofile import SharedUserprofile
 from SequencingSubmission import SequencingSubmission
 from SequencingFastq import SequencingFastq
 
+from ExternalSubmission import ExternalSubmission
+
 __all__ = [
     "AuthUser",
     "DnaExtraction", "DnaCapturedLibrary", "DnaSheared", "DnaLibraryPreparation",
@@ -40,4 +42,5 @@ __all__ = [
     "DryDemultiplexstatistics", "DryFastqfile",
     "SharedDiagnosis", "SharedInstitution", "SharedOrganism", "SharedPatient", "SharedSample",
     "SharedSampletype", "SharedSubmission", "SharedUsergroup", "SharedUserprofile",
-    "SequencingSubmission", "SequencingFastq"]
+    "SequencingSubmission", "SequencingFastq",
+    "ExternalSubmission"]
