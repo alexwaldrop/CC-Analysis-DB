@@ -14,6 +14,7 @@ class Analysis(Base):
     creation_timestamp  = Column(TIMESTAMP,     nullable=False, server_default=func.current_timestamp())
     error_msg           = Column(LONGTEXT,      default=None)
     run_time            = Column(DOUBLE,        default=None)
+    cost                = Column(DOUBLE,        default=None)
     final_output_dir    = Column(LONGTEXT,      nullable=False)
     sample_sheet        = Column(LONGTEXT,      nullable=False)
     run_start           = Column(TIMESTAMP,     default=None)
