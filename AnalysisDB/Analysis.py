@@ -19,12 +19,14 @@ class Analysis(Base):
     sample_sheet        = Column(LONGTEXT,      nullable=False)
     run_start           = Column(TIMESTAMP,     default=None)
 
-    creator_id          = Column(INTEGER, ForeignKey("auth_user.id"), nullable=False, index=True)
+    rerun_parent_id     = Column(INTEGER, ForeignKey("analysis.analysis_id"), nullable=True, index=True)
+    creator_id          = Column(INTEGER, ForeignKey("user.id"), nullable=False, index=True)
     analysis_type_id    = Column(INTEGER, ForeignKey("analysis_type.analysis_type_id"), nullable=False, index=True)
     status_id           = Column(INTEGER, ForeignKey("analysis_status.status_id"), nullable=False, index=True)
     error_id            = Column(INTEGER, ForeignKey("analysis_error.error_id"), nullable=False, index=True)
 
-    creator             = relationship("AuthUser",          backref="analysis")
+    rerun_parent        = relationship("Analysis",          backref="rerun_child")
+    creator             = relationship("User",              backref="analysis")
     analysis_type       = relationship("AnalysisType",      backref="analysis")
     status              = relationship("AnalysisStatus",    backref="analysis")
     error               = relationship("AnalysisError",     backref="analysis")

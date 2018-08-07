@@ -8,13 +8,12 @@ class AnalysisSamples(Base):
 
     __tablename__   = 'analysis_samples'
 
-    relation_id     = Column(INTEGER,   autoincrement=True, primary_key=True, nullable=False)
+    id              = Column(INTEGER,        autoincrement=True, primary_key=True, nullable=False)
+    sample_id       = Column(VARCHAR(32),    nullable=False, index=True)
 
-    analysis_id     = Column(INTEGER, ForeignKey("analysis.analysis_id"), nullable=False, index=True)
-    sample_id       = Column(VARCHAR(32), ForeignKey("shared_sample.dave_lab_id"),  nullable=False, index=True)
+    analysis_id     = Column(INTEGER,        ForeignKey("analysis.analysis_id"), nullable=False, index=True)
 
     analysis        = relationship("Analysis",      backref="samples")
-    sample          = relationship("SharedSample",  backref="analyses")
 
     def __repr__(self):
         return self.__str__()

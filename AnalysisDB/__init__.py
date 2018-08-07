@@ -1,22 +1,21 @@
 from Analysis import Analysis
 
-from AnalysisInput import AnalysisInput
-from AnalysisOutput import AnalysisOutput
+from User import User
+from File import File
+from InputFile import InputFile
+from OutputFile import OutputFile
 from AnalysisSamples import AnalysisSamples
-from AnalysisRerun import AnalysisRerun
 
 from AnalysisStatus import AnalysisStatus
 from AnalysisError import AnalysisError
 from AnalysisType import AnalysisType
 
-from GraphConfig import GraphConfig
-from PlatformConfig import PlatformConfig
-from ResourceKit import ResourceKit
-from StartupScript import StartupScript
 from SampleSheetCreator import SampleSheetCreator
+from Stats import Stats
+from Tag import Tag
 
 __all__ = [
-    "Analysis",
-    "AnalysisInput", "AnalysisOutput", "AnalysisSamples", "AnalysisRerun",
+    "Analysis","User", "File",
+    "InputFile", "OutputFile", "AnalysisSamples",
     "AnalysisStatus", "AnalysisError", "AnalysisType",
-    "GraphConfig", "PlatformConfig", "ResourceKit", "StartupScript", "SampleSheetCreator"]
+    "SampleSheetCreator", "Stats", "Tag"]

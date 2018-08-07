@@ -17,9 +17,9 @@ class SampleSheetCreator(Base):
     max_input_size          = Column(INTEGER,       nullable=True, default=None)
     submission_only         = Column(TINYINT,       nullable=False)
 
-    creator_id              = Column(ForeignKey("auth_user.id"), nullable=False, index=True)
+    creator_id              = Column(ForeignKey("user.id"), nullable=False, index=True)
 
-    creator                 = relationship("AuthUser")
+    creator                 = relationship("User")
 
     def __repr__(self):
         return self.__str__()
