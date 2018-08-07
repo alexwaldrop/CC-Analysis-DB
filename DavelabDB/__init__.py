@@ -32,6 +32,8 @@ from SequencingSubmission import SequencingSubmission
 from SequencingFastq import SequencingFastq
 
 from ExternalSubmission import ExternalSubmission
+from WhoSubmission import WhoSubmission
+from WhoSubmissionAnalysis import WhoSubmissionAnalysis
 
 __all__ = [
     "AuthUser",
@@ -43,4 +45,5 @@ __all__ = [
     "SharedDiagnosis", "SharedInstitution", "SharedOrganism", "SharedPatient", "SharedSample",
     "SharedSampletype", "SharedSubmission", "SharedUsergroup", "SharedUserprofile",
     "SequencingSubmission", "SequencingFastq",
-    "ExternalSubmission"]
+    "ExternalSubmission",
+    "WhoSubmission", "WhoSubmissionAnalysis"]
