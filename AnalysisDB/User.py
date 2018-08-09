@@ -10,6 +10,7 @@ class User(Base):
     first_name      = Column(VARCHAR(30),   nullable=False)
     last_name       = Column(VARCHAR(30),   nullable=False)
     email           = Column(VARCHAR(254),  nullable=False)
+    davelab_user_id = Column(INTEGER,       nullable=False)
 
     def __repr__(self):
         return self.__str__()
