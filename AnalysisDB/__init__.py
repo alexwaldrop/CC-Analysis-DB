@@ -9,6 +9,7 @@ from AnalysisSamples import AnalysisSamples
 from AnalysisStatus import AnalysisStatus
 from AnalysisError import AnalysisError
 from AnalysisType import AnalysisType
+from Pipeline import Pipeline
 
 from SampleSheetCreator import SampleSheetCreator
 from Stats import Stats
@@ -17,5 +18,5 @@ from Tag import Tag
 __all__ = [
     "Analysis","User", "File",
     "InputFile", "OutputFile", "AnalysisSamples",
-    "AnalysisStatus", "AnalysisError", "AnalysisType",
+    "AnalysisStatus", "AnalysisError", "AnalysisType", "Pipeline",
     "SampleSheetCreator", "Stats", "Tag"]
