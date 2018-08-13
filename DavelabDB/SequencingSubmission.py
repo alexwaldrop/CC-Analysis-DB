@@ -8,7 +8,7 @@ class SequencingSubmission(Base):
 
     __tablename__ = 'sequencing_submission'
 
-    id                  = Column(INTEGER,        autoincrement=True, primary_key=True, nullable=False)
+    sub_id              = Column(INTEGER,       autoincrement=True, nullable=False)
     plex                = Column(VARCHAR(255),  default=None)
     date                = Column(DATE,          default=None)
     facility            = Column(VARCHAR(255),  default=None)
@@ -24,7 +24,7 @@ class SequencingSubmission(Base):
     assay               = Column(VARCHAR(5))
 
     sample_id           = Column(VARCHAR(32),   ForeignKey("shared_sample.dave_lab_id"), index=True, nullable=False)
-    submission_id       = Column(INTEGER,       ForeignKey("shared_submission.id"), default=None, index=True)
+    submission_id       = Column(INTEGER,       ForeignKey("shared_submission.id"), primary_key=True, default=None, index=True)
     demultiplex_id      = Column(INTEGER,       ForeignKey("dry_demultiplexstatistics.id"), default=None, index=True)
     organism            = Column(VARCHAR(32),   ForeignKey("shared_organism.name"), default=None, index=True)
 
