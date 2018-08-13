@@ -28,6 +28,7 @@ from SharedSubmission import SharedSubmission
 from SharedUsergroup import SharedUsergroup
 from SharedUserprofile import SharedUserprofile
 from SharedSubmissionAnalysis import SharedSubmissionAnalysis
+from SharedLibrary import SharedLibrary
 
 from SequencingSubmission import SequencingSubmission
 from SequencingFastq import SequencingFastq
@@ -43,6 +44,6 @@ __all__ = [
     "DryDemultiplexstatistics", "DryFastqfile",
     "SharedDiagnosis", "SharedInstitution", "SharedOrganism", "SharedPatient", "SharedSample",
     "SharedSampletype", "SharedSubmission", "SharedUsergroup", "SharedUserprofile",
-    "SharedSubmissionAnalysis",
+    "SharedSubmissionAnalysis", "SharedLibrary",
     "SequencingSubmission", "SequencingFastq",
     "ExternalSubmission"]
