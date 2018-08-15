@@ -26,13 +26,13 @@ class SequencingSubmission(Base):
     sample_id           = Column(VARCHAR(32),   ForeignKey("shared_sample.dave_lab_id"), index=True, nullable=False)
     submission_id       = Column(INTEGER,       ForeignKey("shared_submission.id"), primary_key=True, default=None, index=True)
     demultiplex_id      = Column(INTEGER,       ForeignKey("dry_demultiplexstatistics.id"), default=None, index=True)
+    library_id          = Column(INTEGER,       ForeignKey("shared_library.id"), default=None, index=True)
     organism            = Column(VARCHAR(32),   ForeignKey("shared_organism.name"), default=None, index=True)
 
-    sharedsample        = relationship("SharedSample", backref="seq_submission")
-    sharedsubmission    = relationship("SharedSubmission", backref="seq_submission")
-    demultiplex_report  = relationship("DryDemultiplexstatistics", backref="seq_submission")
-
-    library_name        = synonym("sequencing_id")
+    sharedsample        = relationship("SharedSample",              backref="seq_submission")
+    sharedsubmission    = relationship("SharedSubmission",          backref="seq_submission")
+    demultiplex_report  = relationship("DryDemultiplexstatistics",  backref="seq_submission")
+    library             = relationship("SharedLibrary",             backref="seq_submission")
 
     def __repr__(self):
         return self.__str__()
