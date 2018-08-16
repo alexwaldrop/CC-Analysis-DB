@@ -13,9 +13,7 @@ class SampleSheetCreator(Base):
     description             = Column(TEXT,          nullable=True)
     creation_timestamp      = Column(TIMESTAMP,     nullable=False, server_default=func.current_timestamp())
     class_name              = Column(TEXT,          nullable=False)
-    min_input_size          = Column(INTEGER,       nullable=False)
-    max_input_size          = Column(INTEGER,       nullable=True, default=None)
-    submission_only         = Column(TINYINT,       nullable=False)
+    is_upstream             = Column(TINYINT,       nullable=False)
 
     creator_id              = Column(ForeignKey("user.id"), nullable=False, index=True)
 
