@@ -1,7 +1,7 @@
 from .. import Base
 from sqlalchemy import Column, ForeignKey
-from sqlalchemy.orm import relationship, synonym
-from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, DATE, LONGTEXT
+from sqlalchemy.orm import relationship
+from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, DATE, LONGTEXT, BIGINT, TINYINT
 
 
 class SequencingSubmission(Base):
@@ -21,10 +21,13 @@ class SequencingSubmission(Base):
     pipeline            = Column(VARCHAR(128),  default=None)
     genome              = Column(VARCHAR(128),  default=None)
     notes               = Column(LONGTEXT,      default=None)
-    assay               = Column(VARCHAR(5))
+    assay               = Column(LONGTEXT,      nullable=False)
+    fastq_count         = Column(BIGINT,        default=None)
+    valid               = Column(TINYINT,       default=None)
 
     sample_id           = Column(VARCHAR(32),   ForeignKey("shared_sample.dave_lab_id"), index=True, nullable=False)
-    submission_id       = Column(INTEGER,       ForeignKey("shared_submission.id"), primary_key=True, default=None, index=True)
+    submission_id       = Column(INTEGER,       ForeignKey("shared_submission.id"), primary_key=True, default=None,
+                                 index=True)
     demultiplex_id      = Column(INTEGER,       ForeignKey("dry_demultiplexstatistics.id"), default=None, index=True)
     library_id          = Column(INTEGER,       ForeignKey("shared_library.id"), default=None, index=True)
     organism            = Column(VARCHAR(32),   ForeignKey("shared_organism.name"), default=None, index=True)
