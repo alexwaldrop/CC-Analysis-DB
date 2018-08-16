@@ -1,7 +1,7 @@
 from .. import Base
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, ForeignKey
-from sqlalchemy.dialects.mysql import INTEGER
+from sqlalchemy.dialects.mysql import INTEGER, VARCHAR
 
 class SharedSubmissionAnalysis(Base):
 
