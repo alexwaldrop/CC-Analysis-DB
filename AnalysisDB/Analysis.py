@@ -25,7 +25,7 @@ class Analysis(Base):
     status_id           = Column(INTEGER, ForeignKey("analysis_status.status_id"), nullable=False, index=True)
     error_id            = Column(INTEGER, ForeignKey("analysis_error.error_id"), nullable=False, index=True)
 
-    rerun_parent        = relationship("Analysis",          backref="rerun_child")
+    rerun_parent        = relationship("Analysis",          backref="rerun_child", remote_side=[analysis_id])
     creator             = relationship("User",              backref="analysis")
     analysis_type       = relationship("AnalysisType",      backref="analysis")
     status              = relationship("AnalysisStatus",    backref="analysis")
