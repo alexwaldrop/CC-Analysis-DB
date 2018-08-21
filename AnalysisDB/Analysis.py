@@ -18,7 +18,7 @@ class Analysis(Base):
     final_output_dir    = Column(LONGTEXT,      nullable=False)
     sample_sheet        = Column(LONGTEXT,      nullable=False)
     run_start           = Column(TIMESTAMP,     default=None)
-    git_commit          = Column(VARCHAR(10),   default=None)
+    git_commit          = Column(VARCHAR(50),   default=None)
 
 
     rerun_parent_id     = Column(INTEGER, ForeignKey("analysis.analysis_id"), nullable=True, index=True)
