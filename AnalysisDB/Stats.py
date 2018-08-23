@@ -8,7 +8,7 @@ class Stats(Base):
     __tablename__ = 'stats'
 
     id              = Column(INTEGER,       autoincrement=True, primary_key=True, nullable=False)
-    sample_id       = Column(INTEGER,       nullable=False)
+    sample_id       = Column(VARCHAR(32),   nullable=False)
     key             = Column(VARCHAR(128),  nullable=False)
     value           = Column(LONGTEXT,      nullable=False)
     input_file      = Column(LONGTEXT,      nullable=False)
