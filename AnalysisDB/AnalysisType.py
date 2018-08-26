@@ -18,12 +18,11 @@ class AnalysisType(Base):
     graph_config            = Column(LONGTEXT,      nullable=False)
     platform_config         = Column(LONGTEXT,      nullable=False)
     resource_kit            = Column(LONGTEXT,      nullable=False)
+    ssc_class_name          = Column(VARCHAR(128),  nullable=False)
 
     creator_id              = Column(INTEGER, ForeignKey("user.id"), nullable=False, index=True)
-    sample_sheet_creator_id = Column(INTEGER, ForeignKey("sample_sheet_creator.sample_sheet_creator_id"), nullable=False, index=True)
 
     creator                 = relationship("User",    backref="analysis_types")
-    sample_sheet_creator    = relationship("SampleSheetCreator", backref="analysis_types")
 
     def __repr__(self):
         return self.__str__()
